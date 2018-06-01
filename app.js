@@ -41,14 +41,13 @@ function onReady() {
        //empty the input
        newToDoText.value = '';
 
-       //delete button
-       //newLi.addEventListener('delete', event => {
+       newLi.addEventListener("click", event => {
+         delButton.addEventListener("click", event => {
 
-          //toDoList.removeChild(newLi);
+          toDoList.removeChild(newLi);
 
-      // });
+       });});
      });
-
 
 
    }
