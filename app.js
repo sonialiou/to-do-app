@@ -41,11 +41,12 @@ function onReady() {
        //empty the input
        newToDoText.value = '';
 
-       newLi.addEventListener('click', event => {
+       newLi.addEventListener("click", event => {
+         delButton.addEventListener("click", event => {
 
           toDoList.removeChild(newLi);
 
-       });
+       });});
      });
 
 
