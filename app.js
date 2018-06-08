@@ -1,59 +1,8 @@
 function onReady() {
-<<<<<<< HEAD
-   const addToDoForm = document.getElementById('addToDoForm');
-   const newToDoText = document.getElementById('newToDoText');
-   const toDoList = document.getElementById('toDoList');
-
-   addToDoForm.addEventListener('submit', event => {
-       event.preventDefault();
-
-       // get the text
-       let title = newToDoText.value;
-
-       // create a new li
-       let newLi = document.createElement('li');
-
-       // create a new input
-       let checkbox = document.createElement('input');
-
-       // create a button
-       let delButton = document.createElement('button');
-
-       // set the input's type to checkbox
-       checkbox.type = "checkbox";
-
-       // set the title
-       newLi.textContent = title;
-
-       // attach the checkbox to the li
-       newLi.appendChild(checkbox);
-
-       //attach the delete button to the li
-       newLi.appendChild(delButton);
-
-       // set the button's type to reset
-       delButton.textContent = "delete";
-
-       //todoList.removeChild(delButton);
-
-       // attach the li to the ul
-       toDoList.appendChild(newLi);
-
-       //empty the input
-       newToDoText.value = '';
-
-       newLi.addEventListener("click", event => {
-         delButton.addEventListener("click", event => {
-
-          toDoList.removeChild(newLi);
-
-       });});
-     });
-
-
-   }
-=======
   const toDos = [];
+
+  let id = '0';
+
   const addToDoForm = document.getElementById('addToDoForm');
 
   function createNewToDo() {
@@ -62,9 +11,14 @@ function onReady() {
 
     toDos.push({
       title: newToDoText.value,
-      complete: false
+      complete: false,
+      id: id.value
     });
     newToDoText.value = '';
+    function increment() {
+      id++;
+      return id;
+    };
 
     renderTheUI();
   }
@@ -81,9 +35,20 @@ function onReady() {
 
        newLi.textContent = toDo.title;
 
+       const delButton = document.createElement('button');
+
        toDoList.appendChild(newLi);
        newLi.appendChild(checkbox);
+       newLi.appendChild(delButton);
 
+       delButton.textContent = "delete";
+
+       newLi.addEventListener("click", event => {
+        delButton.addEventListener("click", event => {
+
+         toDoList.removeChild(newLi);
+       })});
+       renderTheUI();
     });
 
  }
@@ -96,7 +61,6 @@ function onReady() {
     renderTheUI();
   }
 
->>>>>>> checkpt-6-dom-pt2
 
 window.onload = function() {
   onReady();
